@@ -16,8 +16,10 @@ namespace BRapp
 {
     public partial class Form1 : Form
     {
+        //API en request strings
         private string apikey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MTgyMmE0MC1jMmU5LTAxMzUtOTcxMC0wYTU4NjQ2MGFhMzMiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTEzMjQ4MTM4LCJwdWIiOiJzdHVubG9jay1zdHVkaW9zIiwidGl0bGUiOiJiYXR0bGVyaXRlIiwiYXBwIjoic2ltb24tdmFuLWFtc3RlbC1nbWFpbC1jb20tcy1hcHAiLCJzY29wZSI6ImNvbW11bml0eSIsImxpbWl0IjoxMH0.B7Fmz723ic2fK-9Kx0_4ZILtb2zWVBE-3Px0YtinqVs";
         private string requestURL = "https://api.dc01.gamelockerapp.com/shards/global/players/938380520058974208";
+
         public Form1()
         {
             InitializeComponent();
@@ -25,21 +27,20 @@ namespace BRapp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Request aanmaken met de url en api key
             HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURL);
             webRequest.Headers.Add("Authorization", apikey);
             webRequest.Accept = "application/vnd.api+json";
 
+            //streampje openen en responsestring opvangen
             Stream responseStream = webRequest.GetResponse().GetResponseStream();
             StreamReader streamReader = new StreamReader(responseStream);
             string responseString = streamReader.ReadToEnd();
 
+            //responsestring in een jsonobject veranderen
             JObject json = JObject.Parse(responseString);
 
-            //File.WriteAllText(@"C:\Users\Simon\source\repos\BRapp\info.json", JsonConvert.SerializeObject(responseString, Formatting.Indented));
-
-
-
-
+            //filestreampje openen en het jsonobject formatted naar een json file schrijven (Overwrite)
             FileStream fs = File.Open(@"C:\Users\Simon\source\repos\BRapp\info.json", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             JsonWriter jw = new JsonTextWriter(sw);
@@ -49,17 +50,6 @@ namespace BRapp
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(jw, json);
             }
-
-
-
-
-            /*
-            // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(@"C:\Users\Simon\source\repos\BRapp\info.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, json);
-            }*/
         }
     }
 }
