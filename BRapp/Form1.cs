@@ -35,14 +35,31 @@ namespace BRapp
 
             JObject json = JObject.Parse(responseString);
 
-            File.WriteAllText(@"C:\Users\Simon\Google Drive\BRapp\info.json", JsonConvert.SerializeObject(responseString, Formatting.Indented));
+            //File.WriteAllText(@"C:\Users\Simon\source\repos\BRapp\info.json", JsonConvert.SerializeObject(responseString, Formatting.Indented));
 
+
+
+
+            FileStream fs = File.Open(@"C:\Users\Simon\source\repos\BRapp\info.json", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            JsonWriter jw = new JsonTextWriter(sw);
+            {
+                jw.Formatting = Formatting.Indented;
+
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(jw, json);
+            }
+
+
+
+
+            /*
             // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(@"C:\Users\Simon\Google Drive\BRapp\info.json"))
+            using (StreamWriter file = File.CreateText(@"C:\Users\Simon\source\repos\BRapp\info.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, json);
-            }
+            }*/
         }
     }
 }
