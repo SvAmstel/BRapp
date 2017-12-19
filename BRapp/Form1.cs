@@ -23,7 +23,8 @@ namespace BRapp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            apiCall.AccountToJson(accountNummer);
+            //apiCall.AccountToJson(accountNummer);
+            apiCall.MatchesById(accountNummer);
         }
     }
 }
