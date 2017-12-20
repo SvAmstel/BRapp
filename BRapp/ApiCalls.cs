@@ -32,7 +32,6 @@ namespace BRapp
             JsonWriter jw = new JsonTextWriter(sw);
             {
                 jw.Formatting = Formatting.Indented;
-
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(jw, json);
             }
