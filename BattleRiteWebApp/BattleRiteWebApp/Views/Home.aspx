@@ -12,6 +12,8 @@
             <asp:Button ID="btnGetInfo" runat="server" onclick="btnGetInfo_Click" Text="Testknopje" />
             <asp:Label ID="lblPlayerName" runat="server" />
         </div>
+
+        <div><asp:Button ID="Button1" runat="server" onclick="btnGetPlayer_Click" Text="getPlayer" /></div>
     </form>
 </body>
 </html>

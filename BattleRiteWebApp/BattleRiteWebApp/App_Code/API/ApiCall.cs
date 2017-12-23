@@ -53,6 +53,27 @@ public class ApiCall
         }*/
     }
 
+    public Player getPlayer(string accountNumber)
+    {
+        //Request aanmaken met de url en api key
+        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLAccountinfo + accountNumber);
+        webRequest.Headers.Add("Authorization", apikey);
+        webRequest.Accept = "application/vnd.api+json";
+
+        //streampje openen en responsestring opvangen
+        Stream responseStream = webRequest.GetResponse().GetResponseStream();
+        StreamReader streamReader = new StreamReader(responseStream);
+        string responseString = streamReader.ReadToEnd();
+
+        //responsestring in een jsonobject veranderen
+        JObject json = JObject.Parse(responseString);
+        Player p = new Player();
+        p.accountXP = Convert.ToInt32((string)json["data"]["attributes"]["stats"]["25"]);
+        p.accountLevel = Convert.ToInt32((string)json["data"]["attributes"]["stats"]["26"]);
+        p.playerName =  (string)json["data"]["attributes"]["name"];
+        return p;
+    }
+
     public string getPlayerName(string accountNumber)
     {
         //Request aanmaken met de url en api key
@@ -88,15 +109,15 @@ public class ApiCall
         JObject json = JObject.Parse(responseString);
 
         //filestreampje openen en het jsonobject formatted naar een json file schrijven (Overwrite)
-        FileStream fs = File.Open(pathSimon + "infoMatches.json", FileMode.Create);
-        StreamWriter sw = new StreamWriter(fs);
-        JsonWriter jw = new JsonTextWriter(sw);
-        {
-            jw.Formatting = Formatting.Indented;
+        //FileStream fs = File.Open(pathRudi + "infoMatches.json", FileMode.Create);
+        //StreamWriter sw = new StreamWriter(fs);
+        //JsonWriter jw = new JsonTextWriter(sw);
+        //{
+        //    jw.Formatting = Formatting.Indented;
 
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Serialize(jw, json);
-        }
+        //    JsonSerializer serializer = new JsonSerializer();
+        //    serializer.Serialize(jw, json);
+        //}
     }
 }
 

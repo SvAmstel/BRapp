@@ -21,4 +21,9 @@ public partial class Views_Home : System.Web.UI.Page
         playerName = apiCall.getPlayerName(playerId);
         lblPlayerName.Text = playerName;
     }
+
+    protected void btnGetPlayer_Click(object sender, EventArgs e)
+    {
+        Player player = apiCall.getPlayer(playerId);
+    }
 }
