@@ -12,21 +12,17 @@
             <asp:Button ID="btnGetInfo" runat="server" OnClick="btnGetInfo_Click" Text="Testknopje" />
             <asp:Label ID="lblPlayerName" runat="server" />
         </div>
-
         <div>
             <asp:Button ID="Button1" runat="server" OnClick="btnGetPlayer_Click" Text="getPlayer" />
         </div>
-
         <div>
-            <asp:GridView ID="GridView1" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                runat="server" AutoGenerateColumns="false">
-                <Columns>
-                    <asp:BoundField DataField="ChampionName" HeaderText="Name" ItemStyle-Width="30" />
-                    <asp:BoundField DataField="ChampionBio" HeaderText="Bio" ItemStyle-Width="150" />
-                    <asp:BoundField DataField="ChampionImage" HeaderText="Image" ItemStyle-Width="150" />
-                </Columns>
-            </asp:GridView>
-
+            <asp:Table ID="tblChampions" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>Name</asp:TableCell>
+                    <asp:TableCell>Bio</asp:TableCell>
+                    <asp:TableCell>Image</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
         </div>
     </form>
 </body>
