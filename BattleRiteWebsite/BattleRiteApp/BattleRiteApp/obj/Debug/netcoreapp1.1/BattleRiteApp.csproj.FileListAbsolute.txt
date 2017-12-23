@@ -1,4 +1,0 @@
-C:\Users\rudi_\Documents\GitHub\BRapp\BattleRiteWebsite\BattleRiteApp\BattleRiteApp\obj\Debug\netcoreapp1.1\BattleRiteApp.csprojResolveAssemblyReference.cache
-C:\Users\rudi_\Documents\GitHub\BRapp\BattleRiteWebsite\BattleRiteApp\BattleRiteApp\obj\Debug\netcoreapp1.1\BattleRiteApp.csproj.CoreCompileInputs.cache
-C:\Users\rudi_\Documents\GitHub\BRapp\BattleRiteWebsite\BattleRiteApp\BattleRiteApp\obj\Debug\netcoreapp1.1\BattleRiteApp.AssemblyInfoInputs.cache
-C:\Users\rudi_\Documents\GitHub\BRapp\BattleRiteWebsite\BattleRiteApp\BattleRiteApp\obj\Debug\netcoreapp1.1\BattleRiteApp.AssemblyInfo.cs
