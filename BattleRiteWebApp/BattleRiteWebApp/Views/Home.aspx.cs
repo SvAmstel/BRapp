@@ -9,6 +9,7 @@ public partial class Views_Home : System.Web.UI.Page
 {
     private static string playerId = "938380520058974208";
     private ApiCall apiCall = new ApiCall();
+    private string playerName;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,6 +18,7 @@ public partial class Views_Home : System.Web.UI.Page
 
     protected void btnGetInfo_Click(object sender, EventArgs e)
     {
-        apiCall.AccountToJson(playerId);
+        playerName = apiCall.getPlayerName(playerId);
+        lblPlayerName.Text = playerName;
     }
 }

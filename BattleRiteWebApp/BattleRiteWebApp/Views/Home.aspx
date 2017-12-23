@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="btnGetInfo" runat="server" onclick="btnGetInfo_Click" Text="Testknopje" />
+            <asp:Label ID="lblPlayerName" runat="server" />
         </div>
     </form>
 </body>

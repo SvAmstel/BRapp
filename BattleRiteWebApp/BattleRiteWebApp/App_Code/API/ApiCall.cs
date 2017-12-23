@@ -21,10 +21,12 @@ public class ApiCall
     private static string pathRudi = @"C:\Users\rudi_\Documents\JsonFiles\";
     private static string pathSimon = @"C:\Users\Simon\Documents\JSONfiles\";
 
-    public void AccountToJson(string accountNummer)
+    public string playerName;
+
+    public void AccountToJson(string accountNumber)
     {
         //Request aanmaken met de url en api key
-        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLAccountinfo + accountNummer);
+        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLAccountinfo + accountNumber);
         webRequest.Headers.Add("Authorization", apikey);
         webRequest.Accept = "application/vnd.api+json";
 
@@ -36,7 +38,8 @@ public class ApiCall
         //responsestring in een jsonobject veranderen
         JObject json = JObject.Parse(responseString);
 
-        //string name = (string)json.GetValue("data");
+        playerName = (string)json["data"]["attributes"]["name"];
+
 
 
         //filestreampje openen en het jsonobject formatted naar een json file schrijven (Overwrite)
@@ -50,10 +53,29 @@ public class ApiCall
         }*/
     }
 
-    public void MatchesById(string accountNummer)
+    public string getPlayerName(string accountNumber)
     {
         //Request aanmaken met de url en api key
-        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLMatchesById + accountNummer);
+        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLAccountinfo + accountNumber);
+        webRequest.Headers.Add("Authorization", apikey);
+        webRequest.Accept = "application/vnd.api+json";
+
+        //streampje openen en responsestring opvangen
+        Stream responseStream = webRequest.GetResponse().GetResponseStream();
+        StreamReader streamReader = new StreamReader(responseStream);
+        string responseString = streamReader.ReadToEnd();
+
+        //responsestring in een jsonobject veranderen
+        JObject json = JObject.Parse(responseString);
+
+        playerName = (string)json["data"]["attributes"]["name"];
+        return playerName;
+    }
+
+    public void MatchesById(string accountNumber)
+    {
+        //Request aanmaken met de url en api key
+        HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLMatchesById + accountNumber);
         webRequest.Headers.Add("Authorization", apikey);
         webRequest.Accept = "application/vnd.api+json";
 
