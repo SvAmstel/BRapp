@@ -17,16 +17,19 @@ public partial class Views_Default : System.Web.UI.Page
     {
         List<Champion> championList = databaseConnection.GetChampions();
 
-        DataTable dt = new DataTable();
-        dt.Columns.AddRange(new DataColumn[3] { new DataColumn("ChampionName", typeof(string)),
-                            new DataColumn("ChampionBio", typeof(string)),
-                            new DataColumn("ChampionImage",typeof(string)) });
-
         foreach (Champion champion in championList)
         {
-            dt.Rows.Add(champion.championName, champion.bio, champion.championImage);
+            TableRow row = new TableRow();
+            TableCell cellName = new TableCell();
+            cellName.Text = champion.championName;
+            TableCell cellBio = new TableCell();
+            cellBio.Text = champion.bio;
+            TableCell cellImage = new TableCell();
+            cellImage.Text = string.Format("<img src='" + champion.championImage + "' />");
+            row.Cells.Add(cellName);
+            row.Cells.Add(cellBio);
+            row.Cells.Add(cellImage);
+            tblChampions.Rows.Add(row);
         }
-        GridView1.DataSource = dt;
-        GridView1.DataBind();
     }
 }
