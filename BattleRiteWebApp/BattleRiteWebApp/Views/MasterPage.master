@@ -5,24 +5,27 @@
 <html>
 <head runat="server">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" runat="server" media="screen" href="~/CSS/navbarStyle.css" />
+    <link rel="stylesheet" runat="server" media="screen" href="~/CSS/Masterpage/navbarStyle.css" />
+    <link rel="stylesheet" runat="server" media="screen" href="~/CSS/Masterpage/MasterPage.css" />
+     <link rel="stylesheet" runat="server" media="screen" href="~/CSS/Homepage/TableStyle.css" />
     <title>Battlerite App</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="background">
 
     <form id="form1" runat="server">
 
-        <ul class="active">
+        <ul class="active center">
             <li class="active"><a href="/Views/HomePage.aspx">Home</a></li>
             <li><a href="/Views/Effects.aspx">Effects</a></li>
             <li><a href="/Views/Statistics.aspx">Statistics</a></li>
             <li><a href="/Views/Players.aspx">Player</a></li>
         </ul>
 
-        <div class="col-md-6 col-md-offset-3">
+        <div class="center">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <link rel="stylesheet" runat="server" media="screen" href="~/CSS/Homepage/TableStyle.css" />
             </asp:ContentPlaceHolder>
         </div>
     </form>
