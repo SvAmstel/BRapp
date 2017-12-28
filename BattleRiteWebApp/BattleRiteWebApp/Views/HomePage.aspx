@@ -7,18 +7,29 @@
         <title>Home</title>
     </head>
     <body>
-        <div>
-            <asp:Table ID="tblChampions" runat="server">
+        <div id="DivMelee" style="padding-bottom: 10px">
+            <asp:Table ID="tblMeleeChampions" runat="server">
                 <asp:TableRow>
-                    <asp:TableCell>Name</asp:TableCell>
-                    <asp:TableCell>Bio</asp:TableCell>
-                    <asp:TableCell>Image</asp:TableCell>
+                    <asp:TableCell>Melee</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </div>
+        <div id="DivRanged" style="padding-bottom: 10px">
+            <asp:Table ID="tblRangedChampions" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>Ranged</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </div>
+        <div id="DivSupport" style="padding-bottom: 10px">
+            <asp:Table ID="tblSupportChampions" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>Support</asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         </div>
     </body>
     </html>
-
 </asp:Content>
 
 

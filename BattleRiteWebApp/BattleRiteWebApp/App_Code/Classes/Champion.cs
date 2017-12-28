@@ -12,6 +12,7 @@ public class Champion
     public string championImage { get; set; }
     public string bio { get; set; }
     public string image { get; set; }
+    public string championType { get; set; }
     public List<Skill> skillList { get; set; }
     public List<BattleRite> battleRiteList { get; set; }
 }

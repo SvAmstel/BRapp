@@ -28,6 +28,7 @@ public class DatabaseConnection
                 champion.championName = (row["ChampionName"]).ToString();
                 champion.bio = (row["ChampionBio"]).ToString();
                 champion.championImage = (row["Image"]).ToString();
+                champion.championType = (row["ChampionType"]).ToString();
                 championList.Add(champion);
             }
             return championList;
