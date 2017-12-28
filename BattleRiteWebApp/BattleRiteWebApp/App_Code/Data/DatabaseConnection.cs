@@ -11,10 +11,11 @@ using System.Web;
 /// </summary>
 public class DatabaseConnection
 {
+    private string connString = "server=localhost;uid=root;" +
+           "pwd=root;database=battlerite";
     public List<Champion> GetChampions()
     {
-        MySqlConnection conn = new MySqlConnection("server=10.0.0.55;uid=Rudolf;" +
-            "pwd=L(ll13g3s;database=battlerite");
+        MySqlConnection conn = new MySqlConnection(connString);
         List<Champion> championList = new List<Champion>();
         try
         {
@@ -45,8 +46,7 @@ public class DatabaseConnection
 
     public List<Skill> GetSkillsByChampionName(string name)
     {
-        MySqlConnection conn = new MySqlConnection("server=10.0.0.55;uid=Rudolf;" +
-            "pwd=L(ll13g3s;database=battlerite");
+        MySqlConnection conn = new MySqlConnection(connString);
         List<Skill> skillList = new List<Skill>();
         try
         {
@@ -85,8 +85,7 @@ public class DatabaseConnection
 
     public List<BattleRite> GetBattleritesByChampionName(string name)
     {
-        MySqlConnection conn = new MySqlConnection("server=10.0.0.55;uid=Rudolf;" +
-            "pwd=L(ll13g3s;database=battlerite");
+        MySqlConnection conn = new MySqlConnection(connString);
         List<BattleRite> battleriteList = new List<BattleRite>();
         try
         {
@@ -120,8 +119,7 @@ public class DatabaseConnection
 
     public Champion GetChampionByName(string name)
     {
-        MySqlConnection conn = new MySqlConnection("server=10.0.0.55;uid=Rudolf;" +
-           "pwd=L(ll13g3s;database=battlerite");
+        MySqlConnection conn = new MySqlConnection(connString);
         Champion champion = new Champion();
         try
         {
