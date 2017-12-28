@@ -50,9 +50,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("/champion.aspx?name=" + mc.championName);
                 };
                 ib.ImageUrl = mc.championImage;
+                ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
@@ -64,9 +65,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
                 ib.ImageUrl = mc.championImage;
+                ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 tblMeleeChampions.Rows.Add(tr);
@@ -78,9 +80,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
                 ib.ImageUrl = mc.championImage;
+                ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
@@ -98,9 +101,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
                 ib.ImageUrl = rc.championImage;
+                ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
@@ -112,9 +116,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
                 ib.ImageUrl = rc.championImage;
+                ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 tblRangedChampions.Rows.Add(tr);
@@ -126,9 +131,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
                 ib.ImageUrl = rc.championImage;
+                ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
@@ -146,9 +152,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
                 ib.ImageUrl = sc.championImage;
+                ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
@@ -160,9 +167,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
                 ib.ImageUrl = sc.championImage;
+                ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 tblSupportChampions.Rows.Add(tr);
@@ -174,9 +182,10 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("http://www.google.com");
+                    Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
                 ib.ImageUrl = sc.championImage;
+                ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
                 count++;
