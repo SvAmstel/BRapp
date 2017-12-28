@@ -50,7 +50,7 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("/champion.aspx?name=" + mc.championName);
+                    Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
                 ib.ImageUrl = mc.championImage;
                 ib.ToolTip = mc.championName;
