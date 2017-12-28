@@ -117,4 +117,37 @@ public class DatabaseConnection
             conn.Close();
         }
     }
+
+    public Champion GetChampionByName(string name)
+    {
+        MySqlConnection conn = new MySqlConnection("server=10.0.0.55;uid=Rudolf;" +
+           "pwd=L(ll13g3s;database=battlerite");
+        Champion champion = new Champion();
+        try
+        {
+            conn.Open();
+            string query = "SELECT * FROM Champion where ChampionName = '" + name + "';";
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                champion.championImage = reader["Image"].ToString();
+                champion.bio = reader["ChampionBio"].ToString();
+                champion.championType = reader["ChampionType"].ToString();
+                champion.championName = name;
+            }
+            return champion;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            conn.Close();
+        }
+
+    }
 }

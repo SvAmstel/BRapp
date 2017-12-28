@@ -17,11 +17,16 @@ public partial class Views_champion : System.Web.UI.Page
         }
 
         string championName = Request["name"];
+        Champion champion = databaseConnection.GetChampionByName(championName);
         List<Skill> skillList = databaseConnection.GetSkillsByChampionName(championName);
         List<BattleRite> battleriteList = databaseConnection.GetBattleritesByChampionName(championName);
-        lblChampName.Text = championName;
+        lblChampImage.Text = string.Format("<img src='" + champion.championImage + "' />");
+        lblChampName.Text = champion.championName;
+        lblChampName.Font.Bold = true;
+        lblChampName.Font.Size = 16;
 
-        foreach(Skill skill in skillList)
+
+        foreach (Skill skill in skillList)
         {
             TableRow tr = new TableRow();
             TableCell tcImage = new TableCell();
@@ -33,8 +38,8 @@ public partial class Views_champion : System.Web.UI.Page
             TableCell tcCooldown = new TableCell();
             TableCell tcCasttime = new TableCell();
             TableCell tcSkillType = new TableCell();
-            
-            tcImage.Text = string.Format("<img src='"+skill.skillImage+"' />");
+
+            tcImage.Text = string.Format("<img src='"+skill.skillImage+ "'  width='64px' />");
             tr.Cells.Add(tcImage);
             tcName.Text = skill.skillName;
             tr.Cells.Add(tcName);
@@ -64,7 +69,7 @@ public partial class Views_champion : System.Web.UI.Page
             TableCell tcDescription = new TableCell();
             TableCell tcBattleriteType = new TableCell();
 
-            tcImage.Text = string.Format("<img src='" + br.battleRiteImage + "' />");
+            tcImage.Text = string.Format("<img src='" + br.battleRiteImage + "' width='64px' />");
             tr.Cells.Add(tcImage);
             tcName.Text = br.battleRiteName;
             tr.Cells.Add(tcName);
