@@ -134,6 +134,7 @@ public class DatabaseConnection
                 champion.championAvatar = reader["ChampionAvatar"].ToString();
                 champion.championFullBody = reader["ChampionFullBody"].ToString();
                 champion.bio = reader["ChampionBio"].ToString();
+                champion.championTitle = reader["ChampionTitle"].ToString();
                 champion.championType = reader["ChampionType"].ToString();
                 champion.championName = name;
             }

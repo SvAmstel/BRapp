@@ -6,53 +6,56 @@
         <title></title>
     </head>
     <body>
-        <div>
-            <asp:Label ID="lblChampImage" runat="server" />
-        </div>
-        <div>
-            <asp:Label ID="lblChampName" runat="server" />
-        </div>
-        <table>
+       <asp:Table ID="tblHeader" runat="server">
 
-            <tr>
-                <td>
-                    <asp:LinkButton ID="lnkTab1" runat="server" OnClick="lnkTab1_Click">Skills</asp:LinkButton></td>
-                <td>
-                    <asp:LinkButton ID="lnkTab2" runat="server" OnClick="lnkTab2_Click">Battlerites</asp:LinkButton></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <asp:MultiView ID="MultiView1" runat="server">
-                        <asp:View ID="View1" runat="server">
-                            <asp:Table ID="tblSkills" runat="server" GridLines="Both" BorderStyle="Solid">
-                                <asp:TableRow>
-                                    <asp:TableCell></asp:TableCell>
-                                    <asp:TableCell>Name</asp:TableCell>
-                                    <asp:TableCell>Keybinding</asp:TableCell>
-                                    <asp:TableCell>Description</asp:TableCell>
-                                    <asp:TableCell>Energy gain</asp:TableCell>
-                                    <asp:TableCell>Energy cost</asp:TableCell>
-                                    <asp:TableCell>Cooldown</asp:TableCell>
-                                    <asp:TableCell>Cast time</asp:TableCell>
-                                    <asp:TableCell>Skill type</asp:TableCell>
-                                </asp:TableRow>
-                            </asp:Table>
-                        </asp:View>
-                        <asp:View ID="View2" runat="server">
-                            <asp:Table ID="tblBattlerites" runat="server" GridLines="Both" BorderStyle="Solid">
-                                <asp:TableRow>
-                                    <asp:TableCell></asp:TableCell>
-                                    <asp:TableCell>Name</asp:TableCell>
-                                    <asp:TableCell>Description</asp:TableCell>
-                                    <asp:TableCell>Type</asp:TableCell>
-                                </asp:TableRow>
-                            </asp:Table>
-                        </asp:View>
-                    </asp:MultiView>
-                </td>
-            </tr>
-        </table>
 
+       </asp:Table>
+        
+        
+
+            
+        <div style="width:800px">
+            <table>
+
+                <tr>
+                    <td>
+                        <asp:LinkButton ID="lnkTab1" runat="server" OnClick="lnkTab1_Click">Skills</asp:LinkButton></td>
+                    <td>
+                        <asp:LinkButton ID="lnkTab2" runat="server" OnClick="lnkTab2_Click">Battlerites</asp:LinkButton></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:MultiView ID="MultiView1" runat="server">
+                            <asp:View ID="View1" runat="server">
+                                <asp:Table ID="tblSkills" runat="server" GridLines="Both" BorderStyle="Solid">
+                                    <asp:TableRow>
+                                        <asp:TableCell></asp:TableCell>
+                                        <asp:TableCell>Name</asp:TableCell>
+                                        <asp:TableCell>Keybinding</asp:TableCell>
+                                        <asp:TableCell>Description</asp:TableCell>
+                                        <asp:TableCell>Energy gain</asp:TableCell>
+                                        <asp:TableCell>Energy cost</asp:TableCell>
+                                        <asp:TableCell>Cooldown</asp:TableCell>
+                                        <asp:TableCell>Cast time</asp:TableCell>
+                                        <asp:TableCell>Skill type</asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                            </asp:View>
+                            <asp:View ID="View2" runat="server">
+                                <asp:Table ID="tblBattlerites" runat="server" GridLines="Both" BorderStyle="Solid">
+                                    <asp:TableRow>
+                                        <asp:TableCell></asp:TableCell>
+                                        <asp:TableCell>Name</asp:TableCell>
+                                        <asp:TableCell>Description</asp:TableCell>
+                                        <asp:TableCell>Type</asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                            </asp:View>
+                        </asp:MultiView>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
     </html>
 </asp:Content>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,10 +21,35 @@ public partial class Views_champion : System.Web.UI.Page
         Champion champion = databaseConnection.GetChampionByName(championName);
         List<Skill> skillList = databaseConnection.GetSkillsByChampionName(championName);
         List<BattleRite> battleriteList = databaseConnection.GetBattleritesByChampionName(championName);
-        lblChampImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
-        lblChampName.Text = champion.championName;
-        lblChampName.Font.Bold = true;
-        lblChampName.Font.Size = 16;
+
+        TableRow headerRow1 = new TableRow();
+        TableRow headerRow2 = new TableRow();
+        TableCell tcFullImage = new TableCell();
+        tcFullImage.RowSpan = 2;
+        tcFullImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
+        TableCell tcChampName = new TableCell();
+        TableCell tcChampTitle = new TableCell();
+        tcChampName.Text = champion.championName;
+        tcChampName.Font.Size = 30;
+        tcChampName.ForeColor = Color.Orange;
+        tcChampTitle.Font.Size = 20;
+        tcChampTitle.ForeColor = Color.Orange;
+        tcChampTitle.Text = champion.championTitle;
+        headerRow1.Cells.Add(tcFullImage);
+        headerRow1.Cells.Add(tcChampName);
+        headerRow2.Cells.Add(tcChampTitle);
+
+        tblHeader.Rows.Add(headerRow1);
+        tblHeader.Rows.Add(headerRow2);
+
+        //lblChampImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
+        //lblChampName.Text = champion.championName;
+        //lblChampName.Font.Bold = true;
+        //lblChampName.Font.Size = 30;
+        //lblChampName.ForeColor = Color.Orange;
+        //lblChampTitle.Text = champion.championTitle;
+        //lblChampTitle.Font.Size = 20;
+        //lblChampTitle.ForeColor = Color.Orange;
 
 
         foreach (Skill skill in skillList)
