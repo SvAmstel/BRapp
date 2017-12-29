@@ -20,7 +20,7 @@
             <li class="active"><a href="/Views/HomePage.aspx">Home</a></li>
             <li><a href="/Views/Effects.aspx">Effects</a></li>
             <li><a href="/Views/Statistics.aspx">Statistics</a></li>
-            <li><a href="/Views/Players.aspx">Player</a></li>
+            <li><a href="/Views/Player.aspx">Player</a></li>
         </ul>
 
         <div class="center">
