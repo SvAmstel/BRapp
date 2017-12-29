@@ -20,7 +20,7 @@ public partial class Views_champion : System.Web.UI.Page
         Champion champion = databaseConnection.GetChampionByName(championName);
         List<Skill> skillList = databaseConnection.GetSkillsByChampionName(championName);
         List<BattleRite> battleriteList = databaseConnection.GetBattleritesByChampionName(championName);
-        lblChampImage.Text = string.Format("<img src='" + champion.championImage + "' />");
+        lblChampImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
         lblChampName.Text = champion.championName;
         lblChampName.Font.Bold = true;
         lblChampName.Font.Size = 16;

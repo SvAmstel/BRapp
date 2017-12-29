@@ -52,7 +52,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
-                ib.ImageUrl = mc.championImage;
+                ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -67,7 +67,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
-                ib.ImageUrl = mc.championImage;
+                ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -82,7 +82,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + mc.championName);
                 };
-                ib.ImageUrl = mc.championImage;
+                ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -103,7 +103,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
-                ib.ImageUrl = rc.championImage;
+                ib.ImageUrl = rc.championAvatar;
                 ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -118,7 +118,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
-                ib.ImageUrl = rc.championImage;
+                ib.ImageUrl = rc.championAvatar;
                 ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -133,7 +133,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + rc.championName);
                 };
-                ib.ImageUrl = rc.championImage;
+                ib.ImageUrl = rc.championAvatar;
                 ib.ToolTip = rc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -154,7 +154,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
-                ib.ImageUrl = sc.championImage;
+                ib.ImageUrl = sc.championAvatar;
                 ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -169,7 +169,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
-                ib.ImageUrl = sc.championImage;
+                ib.ImageUrl = sc.championAvatar;
                 ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);
@@ -184,7 +184,7 @@ public partial class Views_Default : System.Web.UI.Page
                 {
                     Response.Redirect("champion.aspx?name=" + sc.championName);
                 };
-                ib.ImageUrl = sc.championImage;
+                ib.ImageUrl = sc.championAvatar;
                 ib.ToolTip = sc.championName;
                 tc.Controls.Add(ib);
                 tr.Cells.Add(tc);

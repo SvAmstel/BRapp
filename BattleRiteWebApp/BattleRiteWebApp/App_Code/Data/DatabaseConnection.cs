@@ -28,7 +28,7 @@ public class DatabaseConnection
                 Champion champion = new Champion();
                 champion.championName = (row["ChampionName"]).ToString();
                 champion.bio = (row["ChampionBio"]).ToString();
-                champion.championImage = (row["Image"]).ToString();
+                champion.championAvatar = (row["ChampionAvatar"]).ToString();
                 champion.championType = (row["ChampionType"]).ToString();
                 championList.Add(champion);
             }
@@ -131,7 +131,8 @@ public class DatabaseConnection
 
             while (reader.Read())
             {
-                champion.championImage = reader["Image"].ToString();
+                champion.championAvatar = reader["ChampionAvatar"].ToString();
+                champion.championFullBody = reader["ChampionFullBody"].ToString();
                 champion.bio = reader["ChampionBio"].ToString();
                 champion.championType = reader["ChampionType"].ToString();
                 champion.championName = name;
