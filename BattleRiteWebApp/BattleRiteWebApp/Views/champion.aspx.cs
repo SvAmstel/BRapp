@@ -31,9 +31,9 @@ public partial class Views_champion : System.Web.UI.Page
         TableCell tcChampTitle = new TableCell();
         tcChampName.Text = champion.championName;
         tcChampName.Font.Size = 30;
-        tcChampName.ForeColor = Color.Orange;
+        tcChampName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
         tcChampTitle.Font.Size = 20;
-        tcChampTitle.ForeColor = Color.Orange;
+        tcChampTitle.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
         tcChampTitle.Text = champion.championTitle;
         headerRow1.Cells.Add(tcFullImage);
         headerRow1.Cells.Add(tcChampName);

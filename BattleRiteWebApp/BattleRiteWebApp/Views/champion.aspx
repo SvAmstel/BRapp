@@ -27,7 +27,7 @@
                     <td colspan="2">
                         <asp:MultiView ID="MultiView1" runat="server">
                             <asp:View ID="View1" runat="server">
-                                <asp:Table ID="tblSkills" runat="server" GridLines="Both" BorderStyle="Solid">
+                                <asp:Table ID="tblSkills" runat="server" GridLines="Both" BorderStyle="Solid" ForeColor="#F07C28">
                                     <asp:TableRow>
                                         <asp:TableCell></asp:TableCell>
                                         <asp:TableCell>Name</asp:TableCell>
