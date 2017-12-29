@@ -4,6 +4,12 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-       Effects
+           <div id="DivMelee" style="padding-bottom: 10px">
+                <asp:Table ID="tblEffects" runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>Effects</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            </div>
 </asp:Content>
 

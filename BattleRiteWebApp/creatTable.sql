@@ -36,7 +36,8 @@ CREATE TABLE BattleRite(
 
 CREATE TABLE Effect (
 	EffectName		VARCHAR (50) PRIMARY KEY,
-	Description		VARCHAR (500)
+	Description		VARCHAR (500),
+	EffectType		VARCHAR (10)
 );
 
 INSERT INTO Champion (ChampionName, ChampionBio, ChampionAvatar, ChampionFullBody, ChampionTitle, ChampionType)
@@ -433,6 +434,17 @@ INSERT INTO battlerite (BattleRiteName, ChampionName, Description, BattleRiteTyp
 INSERT INTO battlerite (BattleRiteName, ChampionName, Description, BattleRiteType, Image) VALUES ('Stockpile', 'Jumong', '', 'Control', 'https://d1u5p3l4wpay3k.cloudfront.net/battlerite_gamepedia_en/1/13/Steady_Shot_icon_big.png?version=ecb5b3038383b13f4ca9817e97ba4461');
 
 
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Stun', 'Stun is a form of "hard" crowd control that leaves the target in a state where they\'re unable to move or cast abilities until the end of the effect. Unlike incapacitate or petrify, stuns do not break upon receiving damage.','hard');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Incapacitate', 'Incapacitate is a form of "hard" crowd control that leaves the target in a state where they\'re unable to move or cast abilities until the end of the effect, or until damage is applied to the incapacitated target. Incapacitate effects generally last longer than stuns.','hard');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Petrify', 'Petrify is a form of "hard" crowd control that leaves the target in a state where they\'re unable to move or cast abilities, and gives them a shield. This status lasts until the end of the effect\'s duration, or until the initial shield that the target receives when petrified is broken. Petrify effects generally last longer than stuns.','hard');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Panic', 'Panic is a form of "hard" crowd control that forces the target to flee from the source of the panic, unable to cast abilities or direct their movement. Panic can also increase the movement speed of the target, potentially causing them to run a long distance before regaining control. Panic is broken when the duration ends, or once the target receives a specified amount of damage (like Petrify, but with no shield).','hard');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Root', 'Root is a form of "soft" crowd control that leave the target unable to move. The target can still cast abilities as normal, but cannot move for the duration of the root. The duration of the root varies by ability.','soft');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Snare', 'Stun is a form of "hard" crowd control that leaves the target in a state where they\'re unable to move or cast abilities until the end of the effect. Unlike incapacitate or petrify, stuns do not break upon receiving damage.','soft');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Fading Snare', 'Fading snares differ from "regular" snares in that the target\'s speed is reduced to 0 at the start of the effect (effectively applying Root), but the effect decays linearly over time, gradually restoring the target\'s speed over the duration of the debuff. The duration of a fading snare varies by ability.','soft');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Weaken', 'Weaken reduces the target\'s overall effectiveness by lowering their damage and healing output by a certain percentage. The percentage and duration of the weaken effect varies by ability.','other');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Silence', 'Fading snares differ from "regular" snares in that the target\'s speed is reduced to 0 at the start of the effect (effectively applying Root), but the effect decays linearly over time, gradually restoring the target\'s speed over the duration of the debuff. The duration of a fading snare varies by ability.','soft');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Blind', 'Reduces target vision to a small radius around the character.','other');
+INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Fading Blind', 'Reduces target vision to a small radius around the character, with it being restored slowly over the duration of the debuff.','other');
 
 
 

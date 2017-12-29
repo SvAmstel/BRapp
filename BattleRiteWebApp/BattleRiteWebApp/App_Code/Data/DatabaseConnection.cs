@@ -13,6 +13,7 @@ public class DatabaseConnection
 {
     private string connString = "server=localhost;uid=root;" +
            "pwd=root;database=battlerite";
+
     public List<Champion> GetChampions()
     {
         MySqlConnection conn = new MySqlConnection(connString);
@@ -33,6 +34,36 @@ public class DatabaseConnection
                 championList.Add(champion);
             }
             return championList;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    public List<Effect> GetEffects()
+    {
+        List<Effect> effectList = new List<Effect>();
+        MySqlConnection conn = new MySqlConnection(connString);
+        try
+        {
+            conn.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM effect", conn);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+            foreach (DataRow row in data.Rows)
+            {
+                Effect effect = new Effect();
+                effect.EffectName = (row["EffectName"]).ToString();
+                effect.Description = (row["Description"]).ToString();
+                effect.EffectType = (row["EffectType"]).ToString();
+                effectList.Add(effect);
+            }
+            return effectList;
         }
         catch (Exception ex)
         {
