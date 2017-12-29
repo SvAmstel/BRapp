@@ -24,33 +24,29 @@ public partial class Views_champion : System.Web.UI.Page
 
         TableRow headerRow1 = new TableRow();
         TableRow headerRow2 = new TableRow();
+        TableRow headerRow3 = new TableRow();
         TableCell tcFullImage = new TableCell();
-        tcFullImage.RowSpan = 2;
+        tcFullImage.RowSpan = 3;
         tcFullImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
         TableCell tcChampName = new TableCell();
         TableCell tcChampTitle = new TableCell();
-        tcChampName.Text = champion.championName;
-        tcChampName.Font.Size = 30;
+        tcChampName.Text = champion.championName.ToUpper();
+        tcChampName.Font.Size = 40;
         tcChampName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
-        tcChampTitle.Font.Size = 20;
+        tcChampTitle.Font.Size = 30;
         tcChampTitle.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
         tcChampTitle.Text = champion.championTitle;
+        TableCell tcBio = new TableCell();
+        tcBio.Text = champion.bio;
+        tcBio.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
         headerRow1.Cells.Add(tcFullImage);
         headerRow1.Cells.Add(tcChampName);
         headerRow2.Cells.Add(tcChampTitle);
+        headerRow3.Cells.Add(tcBio);
 
         tblHeader.Rows.Add(headerRow1);
         tblHeader.Rows.Add(headerRow2);
-
-        //lblChampImage.Text = string.Format("<img src='" + champion.championFullBody + "' />");
-        //lblChampName.Text = champion.championName;
-        //lblChampName.Font.Bold = true;
-        //lblChampName.Font.Size = 30;
-        //lblChampName.ForeColor = Color.Orange;
-        //lblChampTitle.Text = champion.championTitle;
-        //lblChampTitle.Font.Size = 20;
-        //lblChampTitle.ForeColor = Color.Orange;
-
+        tblHeader.Rows.Add(headerRow3);
 
         foreach (Skill skill in skillList)
         {

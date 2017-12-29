@@ -13,8 +13,8 @@
         
         
 
-            
-        <div style="width:800px">
+            <br>
+        <div>
             <table>
 
                 <tr>
@@ -42,7 +42,7 @@
                                 </asp:Table>
                             </asp:View>
                             <asp:View ID="View2" runat="server">
-                                <asp:Table ID="tblBattlerites" runat="server" GridLines="Both" BorderStyle="Solid">
+                                <asp:Table ID="tblBattlerites" runat="server" GridLines="Both" BorderStyle="Solid" ForeColor="#F07C28">
                                     <asp:TableRow>
                                         <asp:TableCell></asp:TableCell>
                                         <asp:TableCell>Name</asp:TableCell>
