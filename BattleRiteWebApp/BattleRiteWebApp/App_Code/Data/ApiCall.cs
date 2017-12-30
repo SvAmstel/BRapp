@@ -19,8 +19,9 @@ public class ApiCall
     //private static string pathRudi = @"C:\Users\rudi_\Documents\JsonFiles\";
     //private static string pathSimon = @"C:\Users\Simon\Documents\JSONfiles\";
 
-    public string GetPlayerByName(string playerSearchName)
+    public Player GetPlayerByName(string playerSearchName)
     {
+        Player player = new Player();
         //Request aanmaken met de url en api key
         HttpWebRequest webRequest = HttpWebRequest.CreateHttp(requestURLPlayerByName + playerSearchName);
         webRequest.Headers.Add("Authorization", apikey);
@@ -34,9 +35,14 @@ public class ApiCall
         //responsestring in een jsonobject veranderen
         JObject json = JObject.Parse(responseString);
 
-        string playerName = (string)json["data"][0]["attributes"]["name"];
+        player.playerName = (string)json["data"][0]["attributes"]["name"];
+        player.accountLevel = Convert.ToInt32((string)json["data"][0]["attributes"]["stats"]["26"]);
+        player.wins = Convert.ToInt32((string)json["data"][0]["attributes"]["stats"]["2"]);
+        player.losses = Convert.ToInt32((string)json["data"][0]["attributes"]["stats"]["3"]);
+        player.matchesPlayed = player.wins + player.losses;
+        player.winrate = Math.Round(((double)player.wins / (double)player.matchesPlayed) * 100, 1);
 
-        return playerName;
+        return player;
     }
 
     public List<Champion> GetPlayerWinrates(string playerName)

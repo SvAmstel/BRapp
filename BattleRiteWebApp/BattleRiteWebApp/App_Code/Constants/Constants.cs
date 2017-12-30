@@ -8,5 +8,5 @@ using System.Web;
 /// </summary>
 public static class Constants
 {
-    public const string RedirectToChampionPage = "champion.aspx?name=";
+    public const string RedirectToChampionPage = "~/Views/champion.aspx?name=";
 }

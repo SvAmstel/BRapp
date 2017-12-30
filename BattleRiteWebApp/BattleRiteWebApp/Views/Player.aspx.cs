@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class Views_Default : System.Web.UI.Page
 {
     private ApiCall ac = new ApiCall();
+    private Player player;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,13 +17,28 @@ public partial class Views_Default : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        string playerName;
-        playerName = ac.GetPlayerByName(tbxPlayerName.Text.ToString());
+        
+        player = ac.GetPlayerByName(tbxPlayerName.Text.ToString());
+
         tbxPlayerName.Text = "";
+
         lblPlayerName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
-        lblPlayerName.Text = playerName;
+        lblPlayerName.Text = player.playerName;
         lblPlayerName.Font.Size = 30;
-        List<Champion> championStats = ac.GetPlayerWinrates(playerName);
+
+        lblMatchesPlayed.Text = "Matches Played: " + player.matchesPlayed.ToString();
+        lblMatchesPlayed.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+
+        lblMatchesWon.Text = "Wins: " + player.wins.ToString();
+        lblMatchesWon.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+
+        lblMatchesLost.Text = "Losses: " + player.losses.ToString();
+        lblMatchesLost.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+
+        lblPlayerWinrate.Text = "Winrate: " + player.winrate.ToString() + "%";
+        lblPlayerWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+
+        List<Champion> championStats = ac.GetPlayerWinrates(player.playerName);
 
         List<Champion> sortedList = championStats.OrderBy(o => o.championWinrate).ToList();
         sortedList.Reverse();

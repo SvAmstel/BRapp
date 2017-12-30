@@ -15,4 +15,10 @@ public class Player
     public double accountXP { get; set; }
 
     public double winrate { get; set; }
+
+    public int matchesPlayed { get; set; }
+
+    public int wins { get; set; }
+     
+    public int losses { get; set; }
 }
