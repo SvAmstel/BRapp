@@ -15,11 +15,11 @@
             <br>
             <asp:Label ID="lblMatchesPlayed" runat="server" />
             <br>
-            <asp:Label ID="lblPlayerWinrate" runat="server" />
-            <br>
             <asp:Label ID="lblMatchesWon" runat="server" />
             <br>
             <asp:Label ID="lblMatchesLost" runat="server" />
+            <br>
+            <asp:Label ID="lblPlayerWinrate" runat="server" />
             <br>
         </div>
         <div>
