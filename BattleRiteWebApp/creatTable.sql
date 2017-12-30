@@ -35,9 +35,15 @@ CREATE TABLE BattleRite(
 );
 
 CREATE TABLE Effect (
-	EffectName		VARCHAR (50) PRIMARY KEY,
+	EffectName		VARCHAR (50),
 	Description		VARCHAR (500),
-	EffectType		VARCHAR (10),
+	EffectType		VARCHAR (25),
+	IsBuff			INTEGER	(1),
+	IsDebuff		INTEGER	(1),
+	Champion		VARCHAR	(50),
+	Note1			VARCHAR (200),
+	Note2			VARCHAR (200),
+	PRIMARY KEY (EffectName, Description)
 );
 
 INSERT INTO Champion (ChampionName, ChampionBio, ChampionAvatar, ChampionFullBody, ChampionTitle, ChampionType)
@@ -446,8 +452,74 @@ INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Silence', 'Fad
 INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Blind', 'Reduces target vision to a small radius around the character.','Other');
 INSERT INTO effect (EffectName, Description, EffectType) VALUES ('Fading Blind', 'Reduces target vision to a small radius around the character, with it being restored slowly over the duration of the debuff.','Other');
 
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Chill', 'Target moves up to 20% slower, scaling up with remaining duration. Max duration is 4s.','Soft',0,1,'Alysia');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Freeze', 'Target gains a 20 health shield and is immune to Chill and is unable to move or use abilities for 3s. This effect breaks when the shield breaks.','Hard',0,1,'Alysia');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1,Note2) VALUES ('Ignite', 'Deals 8 damage over 6s.','Damage over time',0,1,'Ashka','Ticks on hit and after : 2s, 4s and 6s.','Cannot kill.');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1,Note2) VALUES ('Pure Fire', 'Your Fireball hits heal you for 15 health.','Healing', 1,0,'Ashka','Granted from both Searing Flight (3 seconds) and Searing Fire (4 seconds).','Can cast up to 6 Fireballs for a total of 90 healing.');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Fire Ward', 'Shield absorbs up to 12 damage and lasts 3s.','Shield', 1,0,'Ashka');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Spell Block', 'Blocks the next spell used within 0.5s and silences the target for 1s.','Other',0,1,'Destiny');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Fading Snare', 'Movement speed is reduced to 0% and gradually restored over 1s.','Soft',0,1,'Destiny');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Arcane Ward', 'Shield absorbs up to 24 damage and lasts 2s.','Shield',1,0,'Ezmo');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Oil', 'Reduces movement speed by 25% for 3.5s.','Soft', 0,1, 'Iva');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Burning Oil', 'Deals 21 damage over 3s.','Damage Over Time',0,1, 'Iva');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Smoke Veil', 'Enter Stealth, gain a Fading Haste and grant all nearby allies a Shield that absorbs up to 32 damage.','Shield',1,0,'Jade');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Prowl', 'You become temporarily immaterial and movement speed is increased by 100% for 1.2s.','Other',1,0,'Jumong');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Seeker\'s Mark', 'Hunting Arrow and Black Arrow consumes the mark healing you for 12 health. Mark lasts for 3s.','Other',0,1,'Jumong');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Haste', 'Movement speed increased by 80%.','Other',1,0, 'Taya');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Tornado', 'Grants immaterial for 2s.','Shield',1,0,'Taya');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Inhibitors Guard', 'Shield absorbs up to 28 damage and lasts 2.5s.','Shield', 1,0,'Varesh');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Corruption', 'Reduces damage and healing done by 15% for 5s.','Reduction',0,1,'Varesh');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Judgement', 'Increases damage taken by 15% for 5s.','Reduction',0,1,'Varesh');
 
 
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1,Note2) VALUES ('Toxin', 'Deals 8 damage to the target and heals self for 8 health over 5s.','Damage over time, Healing',0,1,'Croak','Ticks after 1.25s, 2.5s, 3.75s and 5s.','Cannot kill.');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1,Note2) VALUES ('Venom', 'Deals 18 damage over 3s. Explodes when the effect ends, dealing 38 damage to nearby enemies.','Damage over time',0,1,'Croak','Ticks on hit and after 1.5s and 3s.','Cannot be cleansed by spells who remove negative effects.');
 
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Charged Strike', 'Shield absorbs up to 14 damage and lasts 3s. Consuming Static from enemies increases the shield by an additional 14 HP.','Shield',1,0,'Freya');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Static', 'Target is vulnerable to Freya\'s attacks for 3s. Deals 2 bonus damage.','Other',0,1,'Freya');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Armor Break', 'Increases target\'s damage taken by 20%. Lasts 3s.','Reduction',0,1,'Rook');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Curse', 'Melee attacks deal 2 bonus damage and heal you for 6 health when striking a cursed target. Lasts for 3s.','Other',0,1,'Ruh Kaan');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Fleetfoot', 'Grants immaterial and 35% movement speed for 1.4s.','Immaterial',1,0,'Shifu');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Kunju', 'Grants immaterial for 1s.','Immaterial',1,0,'Shifu');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Butterflies', 'Heals 6 health over 6s.','Healing',1,0,'Blossom');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Adhesive Component', 'Snared by 30% for 3s.','Soft',1,0,'Lucie');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Alacrity', 'Movement speed increased by 33% for the duration of Barrier.','Other',1,0,'Lucie');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Revitalize', 'Heals 6 health over 4s.','Healing',1,0,'Lucie');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Swift Roll', 'Movement speed increased by 33% for 2s.','Other',1,0,'Lucie');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1) VALUES ('Deadly Injection', '','Reduction, Damage',0,1,'Lucie','Consecutive casts before the duration expires will instantly detonate and reapply instead of overwriting.');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion,Note1,Note2) VALUES ('Toxic', 'Deals 9 damage over 6s.','Damage over time',0,1,'Lucie','Toxic damage cannot kill.','Ticks 4 times : after 1.5s, 3s, 4.5s and 6s.');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Sands of Time', 'Target takes 8 additional damage after 3.5s.','Reduction',0,1,'Oldur');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Stone Glass', 'Inflicts Petrify after 1s.','Hard',0,1,'Oldur');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Bubble Shield', 'Shield absorbs up to 30 damage and lasts 2.5s.','Shield',1,0,'Pearl');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Scarab', 'Heals 24 health over 4s.','Healing',1,0,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Swarm', 'Absorbs 24 damage over 2.5s. If the shield is destroyed Moth is spread to nearby enemies.','Shield',1,0,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Infest', 'Absorb 75% damage while infested. Lasts up to 2s.','Shield',1,0,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Moth', 'Heals 6 health over 4.5s.','Healing',1,0,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Brain Bug', 'Unable to move or use abilities for 2s. Movement is controlled by Pestilus.','Hard',0,1,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Scarab', 'Take 24 damage over 4s.','Damage over time',0,1,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Infest', 'Take 25% more damage while infested. Lasts up to 2s.','Reduction',0,1,'Pestilus');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Moth', 'Take 6 damage over 4.5s','Damage over time',0,1,'Pestilus');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Spirit Link', 'Heals 50% of healing received to nearby allies affected by Spirit Link.','Healing',1,0,'Poloma');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Other Side', 'Grants immaterial and 40% movement speed for 1.8s','Immaterial, Other',1,0,'Poloma');
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Soul Bind', 'Deals 30% of damage taken to nearby allies affected by Soul Bind.','Other',0,1,'Poloma');
+
+INSERT INTO effect (EffectName, Description, EffectType,IsBuff,IsDebuff,Champion) VALUES ('Weaken', 'Reduces target\'s healing and damage output by 50%. Lasts 2.5s.','Reduction',0,1,'Sirius');
 
 
