@@ -11,13 +11,14 @@ public partial class Views_Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         string playerName;
         playerName = ac.GetPlayerByName(tbxPlayerName.Text.ToString());
+        tbxPlayerName.Text = "";
         lblPlayerName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
         lblPlayerName.Text = playerName;
         lblPlayerName.Font.Size = 30;
@@ -25,27 +26,70 @@ public partial class Views_Default : System.Web.UI.Page
 
         List<Champion> sortedList = championStats.OrderBy(o => o.championWinrate).ToList();
         sortedList.Reverse();
-
+        int count = 0;
+        TableRow tr = new TableRow();
         foreach (Champion champion in sortedList)
         {
-            TableRow tr = new TableRow();
-            
-            TableCell tcChampion = new TableCell();
-            //tcChampion.RowSpan = 2;
-            ImageButton ib = new ImageButton();
-            ib.Click += (s, EventArgs) =>
+            if (count == 0)
             {
-                Response.Redirect("champion.aspx?name=" + champion.championName);
-            };
-            ib.ImageUrl = champion.championAvatar;
-            ib.ToolTip = champion.championName;
-            tcChampion.Controls.Add(ib);
-            tcChampion.Controls.Add(new LiteralControl("<br />"));
-            Label lblWinrate = new Label();
-            lblWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
-            lblWinrate.Text = champion.championWinrate.ToString();
-            tcChampion.Controls.Add(lblWinrate);
-            tr.Cells.Add(tcChampion);
+                tr = new TableRow();
+                TableCell tc = new TableCell();
+                ImageButton ib = new ImageButton();
+                ib.Click += (s, EventArgs) =>
+                {
+                    Response.Redirect(Constants.RedirectToChampionPage + champion.championName);
+                };
+                ib.ImageUrl = champion.championAvatar;
+                ib.ToolTip = champion.championName;
+                tc.Controls.Add(ib);
+                tc.Controls.Add(new LiteralControl("<br />"));
+                Label lblWinrate = new Label();
+                lblWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+                lblWinrate.Text = champion.championWinrate.ToString();
+                tc.Controls.Add(lblWinrate);
+                tr.Cells.Add(tc);
+                count++;
+
+            }
+            else if (count == 4)
+            {
+                TableCell tc = new TableCell();
+                ImageButton ib = new ImageButton();
+                ib.Click += (s, EventArgs) =>
+                {
+                    Response.Redirect(Constants.RedirectToChampionPage + champion.championName);
+                };
+                ib.ImageUrl = champion.championAvatar;
+                ib.ToolTip = champion.championName;
+                tc.Controls.Add(ib);
+                tc.Controls.Add(new LiteralControl("<br />"));
+                Label lblWinrate = new Label();
+                lblWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+                lblWinrate.Text = champion.championWinrate.ToString();
+                tc.Controls.Add(lblWinrate);
+                tr.Cells.Add(tc);
+                tblWinrates.Rows.Add(tr);
+                count = 0;
+            }
+            else
+            {
+                TableCell tc = new TableCell();
+                ImageButton ib = new ImageButton();
+                ib.Click += (s, EventArgs) =>
+                {
+                    Response.Redirect(Constants.RedirectToChampionPage + champion.championName);
+                };
+                ib.ImageUrl = champion.championAvatar;
+                ib.ToolTip = champion.championName;
+                tc.Controls.Add(ib);
+                tc.Controls.Add(new LiteralControl("<br />"));
+                Label lblWinrate = new Label();
+                lblWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+                lblWinrate.Text = champion.championWinrate.ToString();
+                tc.Controls.Add(lblWinrate);
+                tr.Cells.Add(tc);
+                count++;
+            }
             tblWinrates.Rows.Add(tr);
         }
 
