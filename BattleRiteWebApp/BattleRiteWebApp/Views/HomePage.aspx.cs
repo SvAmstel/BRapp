@@ -24,17 +24,17 @@ public partial class Views_Default : System.Web.UI.Page
 
         foreach (Champion champion in championList)
         {
-            if (champion.championType == "Melee")
+            if (champion.championType == ChampionType.Melee.ToString())
             {
                 meleeChamps.Add(champion);
             }
 
-            if (champion.championType == "Ranged")
+            if (champion.championType == ChampionType.Ranged.ToString())
             {
                 rangedChamps.Add(champion);
             }
 
-            if (champion.championType == "Support")
+            if (champion.championType == ChampionType.Support.ToString())
             {
                 supportChamps.Add(champion);
             }
@@ -50,7 +50,7 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("champion.aspx?name=" + mc.championName);
+                    Response.Redirect(Constants.RedirectToChampionPage + mc.championName);
                 };
                 ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
@@ -65,7 +65,7 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("champion.aspx?name=" + mc.championName);
+                    Response.Redirect(Constants.RedirectToChampionPage + mc.championName);
                 };
                 ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
@@ -80,7 +80,7 @@ public partial class Views_Default : System.Web.UI.Page
                 ImageButton ib = new ImageButton();
                 ib.Click += (s, EventArgs) =>
                 {
-                    Response.Redirect("champion.aspx?name=" + mc.championName);
+                    Response.Redirect(Constants.RedirectToChampionPage + mc.championName);
                 };
                 ib.ImageUrl = mc.championAvatar;
                 ib.ToolTip = mc.championName;
