@@ -11,19 +11,50 @@ public partial class Views_Default : System.Web.UI.Page
     private DatabaseConnection databaseConnection = new DatabaseConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
+        CreateEffectTable();
+    }
+    private void CreateEffectTable()
+    {
         List<Effect> effectList = databaseConnection.GetEffects();
 
-        TableRow tr = new TableRow();
         foreach (Effect effect in effectList)
         {
-
-            tr = new TableRow();
-            TableCell tcEffectName = new TableCell();
-            tcEffectName.Text = effect.EffectName.ToUpper();
-            tcEffectName.Font.Size = 10;
-            tcEffectName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
-            tr.Cells.Add(tcEffectName);
+            TableRow tr = new TableRow();
+            tr.Cells.Add(CreateEffectName(effect.EffectName));
+            tr.Cells.Add(CreateDescription(effect.Description));
+            tr.Cells.Add(CreateEffectType(effect.EffectType));
             tblEffects.Rows.Add(tr);
-        }       
+        }
     }
+
+    private TableCell CreateEffectName(string effectName)
+    {
+        TableCell tcEffectName = new TableCell();
+        tcEffectName.Text = effectName;
+        SetStyleForCell(tcEffectName);
+        return tcEffectName;
+    }
+
+    private TableCell CreateDescription(string description)
+    {
+        TableCell tcDescription = new TableCell();
+        tcDescription.Text = description;
+        SetStyleForCell(tcDescription);
+        return tcDescription;
+    }
+
+    private TableCell CreateEffectType(string effectType)
+    {
+        TableCell tcEffectType = new TableCell();
+        tcEffectType.Text = effectType;
+        SetStyleForCell(tcEffectType);
+        return tcEffectType;
+    }
+
+    private void SetStyleForCell(TableCell cell)
+    {
+        cell.Font.Size = 10;
+        cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+    }
+
 }
