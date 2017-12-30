@@ -12,5 +12,7 @@ public class Player
     
     public int accountLevel { get; set; }
 
-    public decimal accountXP { get; set; }
+    public double accountXP { get; set; }
+
+    public double winrate { get; set; }
 }

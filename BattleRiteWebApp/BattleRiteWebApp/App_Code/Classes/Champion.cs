@@ -15,6 +15,8 @@ public class Champion
     public string championFullBody { get; set;  }
     public string championType { get; set; }
     public string championTitle { get; set; }
+    public double championWinrate { get; set; }
+    public int championDevNumber { get; set; }
     public List<Skill> skillList { get; set; }
     public List<BattleRite> battleRiteList { get; set; }
 }

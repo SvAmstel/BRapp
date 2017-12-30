@@ -31,6 +31,7 @@ public class DatabaseConnection
                 champion.bio = (row["ChampionBio"]).ToString();
                 champion.championAvatar = (row["ChampionAvatar"]).ToString();
                 champion.championType = (row["ChampionType"]).ToString();
+                champion.championDevNumber = Convert.ToInt32((row["ChampionDevNumber"]).ToString());
                 championList.Add(champion);
             }
             return championList;

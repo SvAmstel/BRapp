@@ -8,9 +8,16 @@
         <title></title>
     </head>
     <body>
-        <asp:TextBox ID="tbxPlayerName" runat="server" />
-        <asp:Button ID="btnSearch" runat="server" Text="Search" onclick="btnSearch_Click" />
-        <asp:Label ID="lblPlayerName" runat="server" />
+        <div>
+            <asp:TextBox ID="tbxPlayerName" runat="server" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+        </div>
+        <div>
+            <asp:Label ID="lblPlayerName" runat="server" />
+        </div>
+        <div>
+            <asp:Table ID="tblWinrates" runat="server" />
+        </div>
     </body>
     </html>
 </asp:Content>
