@@ -34,6 +34,9 @@ public partial class Views_Default : System.Web.UI.Page
             lblPlayerWinrate.Text = "Winrate: " + player.winrate.ToString() + "%";
             lblPlayerWinrate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
 
+            lblPlayerLevel.Text = "Account level: " + player.accountLevel.ToString();
+            lblPlayerLevel.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F07C28");
+
             List<Champion> championStats = ac.GetPlayerWinrates(player.playerName);
             List<Champion> sortedList = championStats.OrderBy(o => o.championWinrate).ToList();
             sortedList.Reverse();

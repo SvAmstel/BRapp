@@ -12,6 +12,7 @@
         </div>
         <div>
             <asp:Label ID="lblPlayerName" runat="server" />
+            <asp:Label ID="lblPlayerLevel" runat="server" />
             <br>
             <asp:Label ID="lblMatchesPlayed" runat="server" />
             <br>
