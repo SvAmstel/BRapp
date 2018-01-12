@@ -10,8 +10,8 @@ namespace Battlesite.Data
 {
     public class DatabaseConnection
     {
-        private string connString = "server=localhost;uid=root;" +
-         "pwd=root;database=battlerite";
+        private string connString = "server=188.226.195.65;uid=Battlesite;" +
+         "pwd=nickiseenbaasje;database=battlerite";
 
         public List<Champion> GetChampions()
         {
