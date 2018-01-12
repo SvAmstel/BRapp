@@ -107,7 +107,6 @@
     <Compile Include="Data\DatabaseConnection.cs" />
     <Compile Include="Models\Battlerite.cs" />
     <Compile Include="Models\Champion.cs" />
-    <Compile Include="Models\DBO.cs" />
     <Compile Include="Models\Effect.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Player.cs" />
