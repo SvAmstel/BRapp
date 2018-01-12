@@ -11,7 +11,7 @@ namespace Battlesite.Data
     public class DatabaseConnection
     {
         private string connString = "server=188.226.195.65;uid=Battlesite;" +
-         "pwd=nickiseenbaasje;database=battlerite";
+         "pwd=nickiseenbaasje;database=Battlerite";
 
         public List<Champion> GetChampions()
         {
@@ -26,11 +26,11 @@ namespace Battlesite.Data
                 foreach (DataRow row in data.Rows)
                 {
                     Champion champion = new Champion();
-                    champion.championName = (row["ChampionName"]).ToString();
-                    champion.bio = (row["ChampionBio"]).ToString();
+                    champion.name = (row["ChampionName"]).ToString();
+                    champion.description = (row["ChampionBio"]).ToString();
                     champion.championAvatar = (row["ChampionAvatar"]).ToString();
                     champion.championType = (row["ChampionType"]).ToString();
-                    champion.championDevNumber = Convert.ToInt32((row["ChampionDevNumber"]).ToString());
+                    champion.champion_id = Convert.ToInt32((row["ChampionDevNumber"]).ToString());
                     championList.Add(champion);
                 }
                 return championList;
@@ -164,10 +164,10 @@ namespace Battlesite.Data
                 {
                     champion.championAvatar = reader["ChampionAvatar"].ToString();
                     champion.championFullBody = reader["ChampionFullBody"].ToString();
-                    champion.bio = reader["ChampionBio"].ToString();
+                    champion.description = reader["ChampionBio"].ToString();
                     champion.championTitle = reader["ChampionTitle"].ToString();
                     champion.championType = reader["ChampionType"].ToString();
-                    champion.championName = name;
+                    champion.name = name;
                 }
                 return champion;
             }
@@ -180,6 +180,32 @@ namespace Battlesite.Data
                 conn.Close();
             }
 
+        }
+
+        /// <summary>
+        /// Finds all records from a single table that match the filters
+        /// </summary>
+        /// <param name="table">Table you're selecting from</param>
+        /// <param name="filters">List of filter requirements where the key is the fieldname in the database</param>
+        /// <returns></returns>
+
+        public List<DBO> Find(string table, Dictionary<string, string> filters)
+        {
+            string query = "SELECT * FROM " + table + " WHERE ";
+            int count = 0;
+            foreach (KeyValuePair<string, string> entry in filters)
+            {
+                if(count == 0)
+                {
+                    query += entry.Key + " = " + entry.Value;
+                }
+                else
+                {
+                    query += " AND " + entry.Key + " = " + entry.Value;
+                }               
+            }
+            Console.Write(query);
+            return null;
         }
     }
 }

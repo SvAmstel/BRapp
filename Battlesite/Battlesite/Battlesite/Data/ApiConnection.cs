@@ -61,8 +61,8 @@ namespace Battlesite.Data
             int losses = 0;
             foreach (Champion champ in winrates)
             {
-                int winInt = 12000 + champ.championDevNumber;
-                int lossInt = 13000 + champ.championDevNumber;
+                int winInt = 12000 + champ.champion_id;
+                int lossInt = 13000 + champ.champion_id;
                 string winString = winInt.ToString();
                 string lossString = lossInt.ToString();
                 if ((string)json["data"][0]["attributes"]["stats"][winString] != null)

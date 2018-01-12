@@ -19,8 +19,10 @@ namespace Battlesite.Views
         protected void testknopje_Click(object sender, EventArgs e)
         {
             DatabaseConnection dbconn = new DatabaseConnection();
-            List<Champion> champs = new List<Champion>();
-            champs = dbconn.GetChampions();
+            Dictionary<string, string> hash = new Dictionary<string,string>();
+            hash.Add("champion_id","1");
+            List<DBO> champs = new List<DBO>();
+            champs = dbconn.Find("champion",hash);
         }
     }
 }
