@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Battlesite.Models
 {
-    public class Champion : DBO
+    public class Champion
     {
         public int champion_id { get; set; }
         public string name { get; set; }
@@ -13,10 +13,25 @@ namespace Battlesite.Models
         public string description { get; set; }
         public string championAvatar { get; set; }
         public string championFullBody { get; set; }
-        public string championType { get; set; }
-        public string championTitle { get; set; }
+        public string type { get; set; }
+        public string title { get; set; }
+        public int price_coins { get; set; }
+        public int price_gems { get; set; }
+        public int online { get; set; }
         public double championWinrate { get; set; }
         public List<Skill> skillList { get; set; }
         public List<Battlerite> battleRiteList { get; set; }
+
+        public Champion(int champion_id, string name, string title, string description, string type, string image, int price_coins, int price_gems)
+        {
+            this.champion_id = champion_id;
+            this.name = name;
+            this.title = title;
+            this.description = description;
+            this.type = type;
+            this.image = image;
+            this.price_coins = price_coins;
+            this.price_gems = price_gems;
+        }
     }
 }
