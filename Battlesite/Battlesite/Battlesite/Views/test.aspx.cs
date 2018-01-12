@@ -22,7 +22,7 @@ namespace Battlesite.Views
             Dictionary<string, string> hash = new Dictionary<string,string>();
             hash.Add("champion_id","1");
             List<Champion> champs = new List<Champion>();
-            champs = dbconn.Find(hash);
+            champs = dbconn.FindChampions(null);
         }
     }
 }

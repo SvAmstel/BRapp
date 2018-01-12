@@ -17,7 +17,6 @@ namespace Battlesite.Models
         public string title { get; set; }
         public int price_coins { get; set; }
         public int price_gems { get; set; }
-        public int online { get; set; }
         public double championWinrate { get; set; }
         public List<Skill> skillList { get; set; }
         public List<Battlerite> battleRiteList { get; set; }
