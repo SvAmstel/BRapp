@@ -17,7 +17,7 @@ namespace Battlesite.Views
             List<Champion> champs = new List<Champion>();
 
             DatabaseConnection dc = new DatabaseConnection();
-            champs = dc.Find(null);
+            champs = dc.FindChampions(null);
 
             TableRow tr = new TableRow();
             foreach (Champion mc in champs)
