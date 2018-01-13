@@ -21,8 +21,8 @@ namespace Battlesite.Views
             DatabaseConnection dbconn = new DatabaseConnection();
             Dictionary<string, string> hash = new Dictionary<string,string>();
             hash.Add("champion_id","1");
-            List<DBO> champs = new List<DBO>();
-            champs = dbconn.Find("champion",hash);
+            List<Champion> champs = new List<Champion>();
+            champs = dbconn.FindChampions(null);
         }
     }
 }
